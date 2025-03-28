@@ -1,79 +1,387 @@
-0.github.io/test.html
+0.github.io/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World | Elegant Design</title>
+    <title>Atheesh Krishnan | Developer Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            color: var(--dark);
+            background-color: var(--light);
         }
+        
         .container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
-        h1 {
+        
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .hero {
+            padding: 4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero h1 {
             font-size: 3rem;
-            color: #2c3e50;
             margin-bottom: 1rem;
-            font-weight: 600;
+            line-height: 1.2;
         }
-        p {
+        
+        .hero p {
             font-size: 1.2rem;
-            color: #7f8c8d;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
-            font-weight: 300;
         }
+        
         .btn {
             display: inline-block;
-            background-color: #3498db;
-            color: white;
+            background-color: white;
+            color: var(--primary);
             text-decoration: none;
             padding: 0.8rem 1.8rem;
             border-radius: 30px;
-            font-weight: 400;
+            font-weight: 500;
             transition: all 0.3s ease;
         }
+        
         .btn:hover {
-            background-color: #2980b9;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        .highlight {
-            color: #3498db;
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
         }
-        .footer {
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
             margin-top: 2rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-img i {
+            font-size: 3rem;
+            color: var(--gray);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
             font-size: 0.9rem;
-            color: #95a5a6;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello, <span class="highlight">World!</span></h1>
-        <p>Welcome young padawan!</p>
-        <a href="#" class="btn">Learn More</a>
-        <div class="footer">
-            Created with ❤️ on March 28, 2025
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">AK</div>
+                <div class="nav-links">
+                    <a href="#projects">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+            
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Atheesh Krishnan</h1>
+                    <p>Software Developer & Technology Enthusiast</p>
+                    <a href="https://github.com/atkrish0" class="btn" target="_blank">View GitHub</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    
+                    <div class="social-icons">
+                        <a href="https://github.com/atkrish0" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
+    
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Here are some of the projects I've been working on recently.</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project One</h3>
+                        <p>A description of your first project. What technologies did you use? What problems did it solve?</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Two</h3>
+                        <p>A description of your second project. Perhaps this one is a mobile app or has responsive design.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Three</h3>
+                        <p>A description of your third project. Maybe this one focuses on data or backend technologies.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" style="background-color: var(--gray-light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>A little bit about my background and what I do.</p>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 1rem;">
+                    Hello! I'm Atheesh, a passionate developer focused on creating clean, efficient, and user-friendly applications.
+                    With experience in various programming languages and frameworks, I enjoy tackling challenging problems and learning new technologies.
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying the outdoors.
+                </p>
+                <p>
+                    I'm always open to new opportunities, collaborations, or just chatting about tech. Feel free to reach out!
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Interested in working together? Feel free to contact me.</p>
+            </div>
+            
+            <div style="text-align: center; max-width: 500px; margin: 0 auto;">
+                <p style="margin-bottom: 2rem;">
+                    Whether you have a question, a project idea, or just want to say hello, I'd love to hear from you.
+                </p>
+                
+                <a href="mailto:your-email@example.com" class="btn" style="background-color: var(--primary); color: white;">
+                    <i class="fas fa-envelope"></i> Send Me an Email
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Atheesh Krishnan. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
